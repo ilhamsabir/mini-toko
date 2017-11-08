@@ -1,0 +1,226 @@
+body {
+	background-color: #E9EBEE;
+}
+
+textarea {
+    resize: none;
+}
+
+.input {
+  border: 1px solid #ccc;
+  border-radius: 2px; }
+
+.input:focus {
+  outline: 0;
+  box-shadow: none;
+  border-color: #66afe9;
+}
+
+.head-bg {
+	height: 250px;
+}
+
+.telegram-head-bg {
+    background: #5682a3;
+}
+
+.bbm-head-bg {
+    background: #5682a3;
+}
+
+.wa-head-bg {
+    background: #009688;
+}
+
+.sms-head-bg {
+    background: #acbac5;
+}
+
+.click-box  {
+	margin-top: -25rem;
+	padding-top: 10rem;
+}
+
+.redirect-box  {
+	padding-top: 10rem;
+}
+
+.redirect-title {
+	text-align: center;
+	font-size: 16px;
+	margin-bottom: 15px;
+}
+
+
+
+.initial-loading-wrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.initial-loading-wrapper div {
+    text-align: center;
+    color: #636363;
+}
+
+.initial-loading-spinner:after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 1.5rem;
+    border: .2rem solid #dbdbdb;
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    width: 5rem;
+    height: 5rem;
+    border-width: .7rem;
+    -webkit-animation: spinAround .5s infinite linear;
+    animation: spinAround .5s infinite linear;
+}
+
+.initial-loading-wrapper div>p {
+    font-weight: bold;
+    margin-bottom: 0.8rem;
+}
+
+.initial-loading-wrapper div>p:last-child {
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+/* Animation Frames */
+
+@-webkit-keyframes spinAround {
+	from {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
+}
+
+@keyframes spinAround {
+	from {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
+}
+
+
+.loader-content .initial-loading-wrapper {
+    position: relative;
+    top: 8rem;
+}
+
+.telegram-top-border {
+	border-top: 10px solid #5682a3;
+}
+
+.wa-top-border {
+	border-top: 10px solid #009688;
+}
+
+.bbm-top-border {
+	border-top: 10px solid #5682a3;
+}
+
+.sms-top-border {
+	border-top: 10px solid #acbac5;
+}
+
+.card {
+    padding: 1em 2em;
+    float: left;
+    width: 100%;
+    background: #fff;
+    min-height: 35rem;
+}
+
+.card-body {
+	margin-top: 1rem;
+}
+
+.message {
+	margin-top: 9rem;
+	padding-top: 2rem;
+}
+
+.message p {
+	text-align: center;
+}
+
+.panel-title {
+	font-size: 1.8rem;
+    font-weight: bold
+}
+
+label {
+    font-weight: 500;
+}
+
+.input-group-addon {
+    padding: 0px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: #dedede;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.input-group-button:last-child .btn {
+    margin-left: -1px;
+}
+
+.input-group input:last-child, .input-group-button:last-child .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.btn-default {	
+    background-color: #efefef;
+}
+
+.btn-telegram {
+    padding: 1.5rem;
+    background: #5682a3;
+    color: #fff;
+    border-radius: 2px;
+}
+
+.btn-bbm {
+	padding: 1.5rem;
+    background: #5682a3;
+    color: #fff;
+    border-radius: 2px;
+}
+
+.btn-wa {
+	padding: 1.5rem;
+    background: #009688;
+    color: #fff;
+    border-radius: 2px;
+}
+
+.btn-sms {
+	padding: 1.5rem;
+    background: #acbac5;
+    color: #fff;
+    border-radius: 2px;
+}

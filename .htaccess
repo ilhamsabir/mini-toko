@@ -1,0 +1,15 @@
+Options +FollowSymLinks
+RewriteEngine On
+ 
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+ 
+RewriteRule ^/(\d+)*$ ./index.php?url=$1
+
+RewriteRule ^wa/(.*)$ ./app/resources/whatsapp.php?query=$1
+
+RewriteRule ^sms/(.*)$ ./app/resources/sms.php?query=$1
+
+RewriteRule ^bbm/(.*)$ ./app/resources/bbm.php?query=$1
+
+RewriteRule ^telegram/(.*)$ ./app/resources/telegram.php?query=$1

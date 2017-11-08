@@ -1,0 +1,10 @@
+/node_modules
+
+/vendor
+/app/vendor
+/dummy/*
+
+.env
+.env.json
+
+.vscode/
