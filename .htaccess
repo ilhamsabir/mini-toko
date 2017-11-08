@@ -1,15 +1,11 @@
-Options +FollowSymLinks
 RewriteEngine On
- 
-RewriteCond %{SCRIPT_FILENAME} !-d
-RewriteCond %{SCRIPT_FILENAME} !-f
- 
-RewriteRule ^/(\d+)*$ ./index.php?url=$1
 
-RewriteRule ^wa/(.*)$ ./app/resources/whatsapp.php?query=$1
+RewriteCond $1 !^(index\.php)
 
-RewriteRule ^sms/(.*)$ ./app/resources/sms.php?query=$1
+RewriteRule ^wa/([^/\.]+)/?$ ./app/views/app.php?type=wa&slug=$1 [L]
 
-RewriteRule ^bbm/(.*)$ ./app/resources/bbm.php?query=$1
+RewriteRule ^sms/([^/\.]+)/?$ ./app/views/app.php?type=sms&slug=$1 [L]
 
-RewriteRule ^telegram/(.*)$ ./app/resources/telegram.php?query=$1
+RewriteRule ^bbm/([^/\.]+)/?$ ./app/views/app.php?type=bbm&slug=$1 [L]
+
+RewriteRule ^telegram/([^/\.]+)/?$ ./app/views/app.php?type=telegram&slug=$1 [L]

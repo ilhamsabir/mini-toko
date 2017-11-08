@@ -2,34 +2,9 @@
 
 require '../controllers/LinkController.php';
 
-// required varible
-$type   = "sms";
-$slug   = $_GET['query'];
+require '../jobs/LinkJobs.php';
 
-// init data controller
-$data   = new Data();
-
-// set callback data request
-$DOM    = $data->getData($type, $slug);
-
-// decode
-$object = json_decode($DOM);
-
-$key = $object->data;
-
-$redirect  = $key->redirect;
-
-$id_number = $key->data->no;
-
-$message   = $key->data->message;
-
-$pixel_id  = $key->pixel_ids[0]->id;
-
-$page_event = $key->pixel_events->page[0];
-
-$button_event = $key->pixel_events->button[0];
-
-include "partial/header.php";
+include 'partial/header.php';
 
 ?>
 
@@ -39,8 +14,8 @@ include "partial/header.php";
 
 	<div class="container">
 		<div class="redirect-box col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-			<div class="redirect-title">SMS Redirect</div>
-			<div class="card sms-top-border">
+			<div class="redirect-title"><?php echo $title;?> Redirect</div>
+			<div class="card <?php echo $class_prefix;?>-top-border">
 				<div class="card-body">
 
 					<div class="loader-content">
@@ -56,7 +31,6 @@ include "partial/header.php";
 							Halaman ini akan secara otomatis mengarahkan anda ke 
 							<b><?php echo $id_number; ?></b>
 						</p>
-						<a href="sms://<?php echo $id_number;?>" id="open-app">click</a>
 					</div>
 
 				</div>
@@ -67,17 +41,17 @@ include "partial/header.php";
 <!-- redirect false -->
 <?php } else { ?>
 
-	<div class="container-fluid head-bg sms-head-bg"></div>
+	<div class="container-fluid head-bg <?php echo $class_prefix;?>-head-bg"></div>
 	<div class="container">
 		<!-- <div class="click-box col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"> -->
 			<div class="click-box col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
 			<div class="card">
 				<div class="card-heading">
-					<div class="panel-title">Kontak SMS</div>
+					<div class="panel-title"><?php echo $panel_title;?></div>
 				</div>
 				<div class="card-body">
 					<div class="form-group">
-						<label for="name" class="control-label">Phone Number</label>
+						<label for="name" class="control-label"><?php echo $label_id_number;?></label>
 					   	<div class="input-group">
 			               	<input type="text" class="form-control input" id="input-id" value="<?php echo $id_number ?>">
 			               	<span class="input-group-btn">
@@ -96,7 +70,9 @@ include "partial/header.php";
 					</div>
 
 					<div class="form-group">
-						<button class="btn btn-default btn-md btn-block btn-sms" id="click-type-button">Buka Sms</button>
+						<button class="btn btn-default btn-md btn-block btn-wa" id="click-type-button">
+							Buka <?php echo $panel_title;?>
+						</button>
 					</div>
 					
 				</div>
@@ -116,4 +92,5 @@ include "partial/header.php";
 		 data-buttonevent="<?php echo $button_event; ?>"
 	></div>
 
-<?php include "partial/footer.php"; ?>
+
+<?php include 'partial/footer.php'; ?>
