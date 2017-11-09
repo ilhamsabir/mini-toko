@@ -1,47 +1,4 @@
-<?php
-
-require '../controllers/LinkController.php';
-
-require '../jobs/LinkJobs.php';
-
-include 'partial/header.php';
-
-?>
-
-
-<!-- redirect true -->
-<?php if ($redirect == "true") { ?>
-
-	<div class="container">
-		<div class="redirect-box col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-			<div class="redirect-title"><?php echo $title;?> Redirect</div>
-			<div class="card <?php echo $class_prefix;?>-top-border">
-				<div class="card-body">
-
-					<div class="loader-content">
-						<div class="initial-loading-wrapper">
-							<div>
-								<div class="initial-loading-spinner"></div>
-							</div>
-						</div>
-					</div>
-
-					<div class="message">
-						<p>
-							Halaman ini akan secara otomatis mengarahkan anda ke 
-							<b><?php echo $id_number; ?></b>
-						</p>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</div>
-
-<!-- redirect false -->
-<?php } else { ?>
-
-	<div class="container-fluid head-bg <?php echo $class_prefix;?>-head-bg"></div>
+<div class="container-fluid head-bg <?php echo $class_prefix;?>-head-bg"></div>
 	<div class="container">
 		<!-- <div class="click-box col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"> -->
 			<div class="click-box col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
@@ -79,18 +36,3 @@ include 'partial/header.php';
 			</div>
 		</div>
 	</div>
-	
-	
-<?php } ?>
-
-	<div id="link" 
-		 data-redirect="<?php echo $redirect;?>"
-		 data-number="<?php echo $id_number; ?>"
-		 data-platform="<?php echo $type; ?>"
-		 data-pixel="<?php echo $pixel_id;?>"
-		 data-pageevent="<?php echo $page_event;?>"
-		 data-buttonevent="<?php echo $button_event; ?>"
-	></div>
-
-
-<?php include 'partial/footer.php'; ?>

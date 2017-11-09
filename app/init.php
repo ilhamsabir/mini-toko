@@ -1,7 +1,5 @@
 <?php
 
-$base_url = 'http://localhost/toko-link';
-
 // required varible
 $type   = $_GET['type'];
 $slug   = $_GET['slug'];

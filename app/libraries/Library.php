@@ -2,7 +2,7 @@
 
 require '../vendor/autoload.php';
 
-class Link {
+class Library {
 
 	public static $ENDPOINT = 'https://api-dev.managix.id/links/get';	
 

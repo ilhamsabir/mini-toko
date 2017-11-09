@@ -1,17 +1,17 @@
 <?php 
 
-require '../libraries/Link.php';
+require '../libraries/Library.php';
 
 
 class Data {
 
 	public static function getData($type, $slug) {
 		
-		$link = new Link();		
+		$lib = new Library();		
 		
 		$data = $type ."/". $slug;
 
-		$response = $link::get($data);
+		$response = $lib::get($data);
 		
 		return $response;
 

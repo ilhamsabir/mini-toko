@@ -21,6 +21,13 @@ var MainLink = (function () {
 		windowsPhone: navigator.userAgent.match(/Windows Phone/i)
 	};
 
+	var platform    = data.platform;
+	var redirect    = data.redirect;
+	var idNumber    = data.idNumber;
+	var pixelId     = data.pixel;
+    var pixelEvents = data.event.page;
+	var buttonEvent = data.event.button;
+
 	// Initialize Report
 	module.init = function () {
 		module.initSelector();
@@ -35,11 +42,9 @@ var MainLink = (function () {
 	module.initSelector = function() {
 		el.telegramInput        = $('#input-id');
 		el.buttonClipboard      = '#button-clipboard';
-		el.link                 = $('#link');
 		el.clickButton			= $('#click-type-button');
 		el.textarea             = $('textarea');
 	};
-
 
 	// trimmer whitespace textarea
 	module.trimmerMessage = function () {
@@ -49,9 +54,7 @@ var MainLink = (function () {
 	};
 
 	// init fb pixel
-	module.initFacebookPixel = function() {
-        var pixelId     = el.link.attr('data-pixel');
-        var pixelEvents = el.link.attr('data-pageevent');
+	module.initFacebookPixel = function() {      
 		! function(f, b, e, v, n, t, s) {
             if (f.fbq) return;
             n = f.fbq = function() {
@@ -127,8 +130,6 @@ var MainLink = (function () {
 
 	// check redirect page true/false
 	module.checkPageType = function () {
-		var redirect = el.link.attr('data-redirect');
-
 		switch (redirect) {
 			case "true":
 				// init redirect type
@@ -147,7 +148,7 @@ var MainLink = (function () {
 
 	// rdirect page
 	module.redirectType = function () {
-		var platform = el.link.attr('data-platform');
+		
 
 		switch (platform) {
 			case "sms":
@@ -173,9 +174,7 @@ var MainLink = (function () {
 
 	// sms redirect
 	module.smsRedirect = function () {
-		var idNumber = el.link.attr('data-number');
 		var prefix = 'sms://'+idNumber;
-
 
       	// trigger to open app
 		module.triggerOpenLink(prefix);
@@ -183,7 +182,6 @@ var MainLink = (function () {
 
 	// wa redirect
 	module.waRedirect = function () {
-		var idNumber        = el.link.attr('data-number');
 		var prefix;
 
 	    // Android and iphone
@@ -204,7 +202,6 @@ var MainLink = (function () {
 
 	// bbm redirect
 	module.bbmRedirect = function () {
-		var idNumber = el.link.attr('data-number');
 		var prefix = 'bbmi://'+idNumber;
 
       	// trigger to open app
@@ -213,8 +210,6 @@ var MainLink = (function () {
 
 	// telegram redirect
 	module.telegramRedirect = function () {
-
-		var idNumber = el.link.attr('data-number');
 
 		var prefix = "https://telegram.me/" + idNumber;
 
@@ -225,19 +220,19 @@ var MainLink = (function () {
 	// open app
 	module.triggerOpenLink = function (prefix) {
 
-		// var buttonId = "button-open-app";
+		var buttonId = "button-open-app";
 		// var buttonId = "button-open-app";
 
-		// var button   = `<a href="${prefix}" id="${buttonId}"></a>`;
+		var button   = `<a href="${prefix}" id="${buttonId}"></a>`;
 
-		// $('body').append(button);
+		$('body').append(button);
 
 		window.setTimeout(function() {
 
-			// var thisButton = $('body').find('#'+buttonId);
+			var thisButton = $('body').find('#'+buttonId);
 			// var thisButton = $('#open-app');
 
-			// thisButton[0].click();
+			thisButton[0].click();
 
 			// window.open('http://www.example.com?ReportID=1', '_blank');
 
@@ -247,9 +242,6 @@ var MainLink = (function () {
 	// click button
 	module.clickType = function () {
 		el.clickButton.on('click', function() {
-
-			// defined button event
-			var buttonEvent = el.link.attr('data-buttonevent');
 
 			// disabled button
 			$(this).text('loading...');
