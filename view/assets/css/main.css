@@ -224,3 +224,7 @@ label {
     color: #fff;
     border-radius: 2px;
 }
+
+.error-title {
+    font-size: 6rem;
+}

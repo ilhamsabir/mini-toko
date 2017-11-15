@@ -1,3 +1,5 @@
+
+
 <div class="container-fluid head-bg <?php echo $class_prefix;?>-head-bg"></div>
 	<div class="container">
 		<!-- <div class="click-box col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"> -->
@@ -27,7 +29,7 @@
 					</div>
 
 					<div class="form-group">
-						<button class="btn btn-default btn-md btn-block btn-wa" id="click-type-button">
+						<button class="btn btn-default btn-md btn-block btn-<?php echo $class_prefix;?>" id="click-type-button">
 							Buka <?php echo $panel_title;?>
 						</button>
 					</div>
@@ -36,3 +38,4 @@
 			</div>
 		</div>
 	</div>
+

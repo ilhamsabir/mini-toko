@@ -1,32 +1,27 @@
 <?php
 
-// required varible
-$type   = $_GET['type'];
-$slug   = $_GET['slug'];
-
-// init data controller
-$data   = new Data();
-
-// set callback data request
-$DOM    = $data->getData($type, $slug);
-
-// decode
-$object = json_decode($DOM);
-
+// inititalize data
 $key = $object->data;
 
+// set redirect 
 $redirect  = $key->redirect;
 
+// set id_number/phonenumber
 $id_number = $key->data->no;
 
+// set message
 $message   = $key->data->message;
 
+// set pixel id
 $pixel_id  = $key->pixel_ids[0]->id;
 
+// set page event
 $page_event = $key->pixel_events->page[0];
 
+// set button event
 $button_event = $key->pixel_events->button[0];
 
+// set var for type
 switch ($type) {
 	case 'wa':
 		
@@ -68,5 +63,8 @@ switch ($type) {
 		# code...
 		break;
 }
+
+// call view layout
+include __DIR__ . "/../view/layout.php";
 
 ?>

@@ -1,11 +1,6 @@
 RewriteEngine On
 
-RewriteCond $1 !^(index\.php)
-
-RewriteRule ^wa/([^/\.]+)/?$ ./app/resources/app.php?type=wa&slug=$1 [L]
-
-RewriteRule ^sms/([^/\.]+)/?$ ./app/resources/app.php?type=sms&slug=$1 [L]
-
-RewriteRule ^bbm/([^/\.]+)/?$ ./app/resources/app.php?type=bbm&slug=$1 [L]
-
-RewriteRule ^telegram/([^/\.]+)/?$ ./app/resources/app.php?type=telegram&slug=$1 [L]
+RewriteRule ^wa/([^/\.]+)/?$ ./index.php?type=wa&slug=$1 [L]
+RewriteRule ^sms/([^/\.]+)/?$ ./index.php?type=sms&slug=$1 [L]
+RewriteRule ^bbm/([^/\.]+)/?$ ./index.php?type=bbm&slug=$1 [L]
+RewriteRule ^telegram/([^/\.]+)/?$ ./index.php?type=telegram&slug=$1 [L]
